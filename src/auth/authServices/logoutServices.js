@@ -1,5 +1,5 @@
-import { BaseApi } from "@/apis/baseApi/baseApi";
-class LogoutServices extends BaseApi<any> {
+import { BaseApi } from "../../apis/baseApi/baseApi.js";
+class LogoutServices extends BaseApi {
     constructor() {
         super("auth/logout")
     }
