@@ -16,7 +16,7 @@ function LoginPage() {
             <main className="relative z-10 flex min-h-0 flex-1 items-center justify-center py-2 sm:py-16">
                 <section
                     aria-labelledby="login-heading"
-                    className="w-full px-4 md:w-1/2 md:px-0"
+                    className=" px-4 md:w-[500px] md:px-0"
                 >
                     <h1 id="login-heading" className="sr-only">تسجيل الدخول</h1>
                  <LoginForm/>

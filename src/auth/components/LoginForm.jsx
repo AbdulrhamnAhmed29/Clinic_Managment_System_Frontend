@@ -29,7 +29,7 @@ export default function HealthCareLoginForm() {
 
             <div className="relative p-4 sm:p-10 lg:p-12">
                 <header className="mb-5 sm:mb-9">
-                    <div className="mb-5 flex items-center justify-between sm:mb-9">
+                    <div dir="ltr" className="mb-5 flex items-center justify-between sm:mb-9">
                         <div className="flex items-center gap-3">
                             <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#7bea00] text-[#11150c] shadow-[0_0_30px_rgba(123,234,0,0.2)] sm:h-12 sm:w-12">
                                 <svg
