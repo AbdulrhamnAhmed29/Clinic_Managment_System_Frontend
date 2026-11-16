@@ -11,7 +11,7 @@ export const useLogout = () => {
             toast.success("تم تسجيل الخروج بنجاح")
             navigate("/login")
         },
-        onError: (error: any) => {
+        onError: (error) => {
             const errorMessage = error?.response?.data?.message || "حدث خطأ ما، حاول مرة أخرى";
             toast.error(errorMessage);
         }

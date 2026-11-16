@@ -1,5 +1,5 @@
-import axios, { type AxiosError } from "axios";
-import { handleAxiosError, type ApiErrorResponse } from "./errorHandler";
+import axios from "axios";
+import { handleAxiosError } from "./errorHandler";
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || "http://localhost:5000/api",
@@ -14,7 +14,7 @@ const api = axios.create({
 // Response Interceptor 
 api.interceptors.response.use(
   (response) => response,
-  (error: AxiosError<ApiErrorResponse>) => {
+  (error) => {
    //Error Logic
     const normalizedError = handleAxiosError(error);
 

@@ -1,22 +1,9 @@
 import { toast } from "sonner";
-import type { AxiosError } from "axios";
-
-export interface ApiErrorResponse {
-  message: string;
-  errors?: Record<string, string[]>;
-}
-
-export interface NormalizedError {
-  status?: number;
-  message: string;
-  errors?: Record<string, string[]>;
-  isNetworkError: boolean;
-}
 
 /**
  * ERROR HANDELR 
  */
-export function handleAxiosError(error: AxiosError<ApiErrorResponse>): NormalizedError {
+export function handleAxiosError(error) {
   if (error.response) {
     const { status, data } = error.response;
 // UN AUTHNTICATED
