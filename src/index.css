@@ -118,13 +118,59 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    * {
+      @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
+    body {
+      @apply bg-background text-foreground;
+      font-family: 'Geist Variable', Tahoma, sans-serif;
     }
-  html {
-    @apply font-sans;
+    html {
+      @apply font-sans;
     }
+}
+
+.gradient-word {
+  background: linear-gradient(110deg, #a3ff12 0%, #7bea00 45%, #37c96b 100%);
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.app-shell {
+  background:
+    radial-gradient(ellipse at 82% 0%, rgba(138, 255, 5, 0.13), transparent 42%),
+    linear-gradient(135deg, #080a08 0%, #0b130d 52%, #080a08 100%);
+}
+
+.app-shell > div > header {
+  background-color: rgb(12 14 12 / 78%);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #7bea00 #080a08;
+}
+
+/* Chrome و Edge و Safari */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080a08;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(123, 234, 0, 0.7);
+  border-radius: 9999px;
+  border: 2px solid #080a08;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7bea00; 
 }

@@ -12,9 +12,12 @@ export const useLogin = () => {
                 navigate("/dashboard");
             }, 2000)
         },
+        onError: (error) => {
+            toast.error(error.message)
+        }
     })
     return {
-        login:mutation.mutate, 
+        login: mutation.mutate,
         isPending: mutation.isPending,
         isError: mutation.isError,
     }
