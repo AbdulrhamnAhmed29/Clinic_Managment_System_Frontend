@@ -1,6 +1,6 @@
 import api from "../axiosConfig/axiosConfig"
 import type { AxiosRequestConfig } from "axios"
-export class BaseApi<T> {
+export class BaseApi<T = any> {
     protected endpoint: string;
     constructor(endpoint: string) {
         this.endpoint = endpoint
