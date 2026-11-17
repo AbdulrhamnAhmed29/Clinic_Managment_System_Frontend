@@ -3,7 +3,7 @@ import { Hospital } from "lucide-react";
 function LoginPageHeader() {
     return (
         <>
-            <div dir="ltr" className="bg-[var(--brand-primary)] px-4 py-1.5 text-center text-[0.7rem] font-extrabold tracking-wide text-[#11150c] sm:py-2 sm:text-sm">
+            <div dir="ltr" className="bg-[var(--brand-primary)] px-4 py-1.5 text-center text-[0.7rem] font-extrabold tracking-wide text-[#11150c] sm:py-2 sm:text-2xl">
                 Clinics System — رعاية أفضل، وإدارة أذكى
             </div>
             <div dir="ltr" className="border-b border-white/10 bg-[#111311]">

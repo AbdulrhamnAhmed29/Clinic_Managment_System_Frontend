@@ -229,7 +229,7 @@
 
 @media (max-width: 639px) {
   .login-page {
-    height: 100dvh;
+    height: 590px;
     min-height: 0;
     overflow: hidden;
   }
@@ -264,12 +264,12 @@
   .login-intro,
   .login-form-fields,
   .login-footer-row {
-    width: 90%;
-    margin-inline: auto;
+    width: 100%;
+   
   }
 
   .login-intro {
-    text-align: right;
+    text-align: center;
   }
 
   .login-intro > div:first-child {
@@ -297,13 +297,13 @@
 
   .login-field {
     height: 3rem;
-    border-radius: 0.875rem;
+    border-radius: 0.675rem;
     font-size: 1rem;
   }
 
   .login-submit {
     height: 3rem;
-    border-radius: 0.875rem;
+    border-radius: 0.675rem;
     font-size: 0.9375rem;
   }
 
@@ -313,7 +313,7 @@
   }
 
   .login-footer-row p {
-    font-size: 0.6875rem;
+    font-size: 0.875rem;
   }
 }
 

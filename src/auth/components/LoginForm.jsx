@@ -24,16 +24,17 @@ export default function HealthCareLoginForm() {
             dir="rtl"
             className=" relative w-full overflow-hidden    bg-transparent text-white "
         >
-            <div className="relative px-3 py-3 sm:p-4 lg:p-7">
-                <header className="mb-3 sm:mb-5">
+            <div className="relative  py-20  sm:p-6 lg:p-7">
+                <header className="mb-3 sm:mb-9">
                     <div className="login-intro">
-                        <div className="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-lime-400">
-                            <span className="h-px w-6 bg-lime-400" />
-                            مرحبًا بعودتك
-                        </div>
-                        <h2 className="text-xl font-black tracking-tight text-white sm:text-3xl">
+                        <h2 className="text-2xl  font-black sm:mb-8 text-white sm:text-2xl">
                             سجّل دخولك
                         </h2>
+                        <div dir="ltr" className="mb-1 inline-flex items-center gap-2 text-2xl font-bold uppercase tracking-[0.16em] text-lime-400">
+                            مرحبًا بعودتك
+                        </div>
+
+
                         <p className="mt-1 max-w-lg text-xs leading-5 text-white/55 sm:mt-2 sm:text-sm sm:leading-6">
                             مساحة واحدة لإدارة عملائك ومتابعة أعمالك بكل سهولة.
                         </p>
@@ -42,7 +43,7 @@ export default function HealthCareLoginForm() {
                 <form
                     onSubmit={handleSubmit(handleFormSubmit)}
                     noValidate
-                    className="login-form-fields mx-auto flex w-[90%] flex-col gap-3 sm:w-full sm:gap-8"
+                    className="login-form-fields mx-auto flex  flex-col gap-3 sm:w-full sm:gap-8"
                 >
                     <div>
                         <label
@@ -157,11 +158,13 @@ export default function HealthCareLoginForm() {
                         )}
                     </button>
                 </form>
-                <div className="login-footer-row mx-auto mt-3 flex w-[90%] items-center gap-3 sm:mt-5 sm:w-full sm:gap-4">
-                    <div className="h-px flex-1 bg-white/10" />
-                    <p className="text-xs text-white/40">مساحة عملك تبدأ من هنا</p>
-                    <div className="h-px flex-1 bg-white/10" />
-                </div>
+
+            </div>
+
+            <div className="login-footer-row mx-auto mt-10 flex w-[90%] items-center gap-3 sm:mt-10 sm:w-full sm:gap-4">
+                <div className="h-px flex-1 bg-white/10" />
+                <p className="text-xs text-white/40">مساحة عملك تبدأ من هنا</p>
+                <div className="h-px flex-1 bg-white/10" />
             </div>
         </div>
     );
