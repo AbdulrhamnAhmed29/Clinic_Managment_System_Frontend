@@ -1,4 +1,4 @@
-import { Activity, LogOut } from "lucide-react";
+import { Hospital, LogOut } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 import { useLogout } from "../auth/authHooks/logoutHook";
 import { sidebarItems } from "./sidebarItems";
@@ -9,11 +9,11 @@ function DesktopSidebar() {
     return (
         <aside className="hidden h-svh w-72 shrink-0 flex-col border-l border-white/10 bg-[#10120f] px-5 py-6 lg:flex">
             <Link to="/dashboard" className="mb-10 flex items-center gap-3 px-2">
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#7bea00] text-[#11150c] shadow-[0_0_26px_rgba(123,234,0,0.2)]">
-                    <Activity aria-hidden="true" size={23} strokeWidth={2.2} />
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-[color-mix(in_srgb,var(--brand-primary)_12%,transparent)] text-[var(--brand-primary)] shadow-[0_0_26px_color-mix(in_srgb,var(--brand-primary)_20%,transparent)]">
+                    <Hospital aria-hidden="true" size={23} strokeWidth={2.2} />
                 </span>
                 <span>
-                    <span className="block text-lg font-black tracking-wide text-white">healthCare</span>
+                    <span className="block text-lg font-black tracking-wide text-white">Clinics System</span>
                     <span className="block text-[0.65rem] font-semibold tracking-widest text-lime-400/75">إدارة الرعاية الصحية</span>
                 </span>
             </Link>

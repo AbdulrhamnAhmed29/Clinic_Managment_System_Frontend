@@ -22,54 +22,23 @@ export default function HealthCareLoginForm() {
     return (
         <div
             dir="rtl"
-            className="login-card relative w-full overflow-hidden lg:rounded-[1.75rem] lg:border lg:border-lime-300/25 bg-transparent text-white lg:shadow-[0_32px_120px_-38px_rgba(132,204,22,0.35)] backdrop-blur-xl"
+            className=" relative w-full overflow-hidden    bg-transparent text-white "
         >
-            <div className="h-1 hidden md:block  md:bg-gradient-to-l md:from-[var(--brand-primary)] md:via-[var(--brand-secondary)] md:to-[var(--brand-primary)] " />
-            <div className="hidden md:block pointer-events-none  absolute -left-24 -top-24 h-64 w-64 rounded-full bg-lime-400/10 blur-[90px]" />
-
-            <div className="login-card-content relative px-3 py-3 sm:p-4 lg:p-7">
+            <div className="relative px-3 py-3 sm:p-4 lg:p-7">
                 <header className="mb-3 sm:mb-5">
-                    <div dir="ltr" className="mb-3 flex items-center justify-between sm:mb-5">
-                        <div className="flex items-center gap-3">
-                            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--brand-primary)] text-[#11150c] shadow-[0_0_24px_color-mix(in_srgb,var(--brand-primary)_20%,transparent)] sm:h-11 sm:w-11">
-                                <svg
-                                    aria-hidden="true"
-                                    className="h-6 w-6"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    strokeWidth="1.8"
-                                >
-                                    <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
-                                </svg>
-                            </span>
-                            <div>
-                                <p className="text-base font-black tracking-[0.12em] text-white sm:text-lg">
-                                    Health Care
-                                </p>
-                                <p className="text-[0.6rem] font-semibold tracking-[0.12em] text-lime-400/80 sm:text-[0.65rem] sm:tracking-[0.18em]">
-                                    HEALTHCARE MANAGEMENT
-                                </p>
-                            </div>
+                    <div className="login-intro">
+                        <div className="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-lime-400">
+                            <span className="h-px w-6 bg-lime-400" />
+                            مرحبًا بعودتك
                         </div>
-                        <span className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-2 text-xs text-white/55 sm:flex">
-                            <span className="h-1.5 w-1.5 rounded-full bg-lime-400 shadow-[0_0_10px_#7bea00]" />
-                            دخول آمن
-                        </span>
+                        <h2 className="text-xl font-black tracking-tight text-white sm:text-3xl">
+                            سجّل دخولك
+                        </h2>
+                        <p className="mt-1 max-w-lg text-xs leading-5 text-white/55 sm:mt-2 sm:text-sm sm:leading-6">
+                            مساحة واحدة لإدارة عملائك ومتابعة أعمالك بكل سهولة.
+                        </p>
                     </div>
-
-                    <div className="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-lime-400">
-                        <span className="h-px w-6 bg-lime-400" />
-                        مرحبًا بعودتك
-                    </div>
-                    <h2 className="text-xl font-black tracking-tight text-white sm:text-3xl">
-                        سجّل دخولك
-                    </h2>
-                    <p className="mt-1 max-w-lg text-xs leading-5 text-white/55 sm:mt-2 sm:text-sm sm:leading-6">
-                        مساحة واحدة لإدارة عملائك ومتابعة أعمالك بكل سهولة.
-                    </p>
                 </header>
-
                 <form
                     onSubmit={handleSubmit(handleFormSubmit)}
                     noValidate
@@ -188,8 +157,7 @@ export default function HealthCareLoginForm() {
                         )}
                     </button>
                 </form>
-
-                <div className="mx-auto mt-3 flex w-[90%] items-center gap-3 sm:mt-5 sm:w-full sm:gap-4">
+                <div className="login-footer-row mx-auto mt-3 flex w-[90%] items-center gap-3 sm:mt-5 sm:w-full sm:gap-4">
                     <div className="h-px flex-1 bg-white/10" />
                     <p className="text-xs text-white/40">مساحة عملك تبدأ من هنا</p>
                     <div className="h-px flex-1 bg-white/10" />
