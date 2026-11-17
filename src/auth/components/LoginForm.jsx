@@ -24,13 +24,13 @@ export default function HealthCareLoginForm() {
             dir="rtl"
             className=" relative w-full overflow-hidden    bg-transparent text-white "
         >
-            <div className="relative  py-20  sm:p-6 lg:p-7">
+            <div className="relative px-2 py-20  sm:p-6 lg:p-7">
                 <header className="mb-3 sm:mb-9">
-                    <div className="login-intro">
-                        <h2 className="text-2xl  font-black sm:mb-8 text-white sm:text-2xl">
+                    <div className="text-center">
+                        <h2 className="text-3xl  font-black sm:mb-8 text-white sm:text-2xl">
                             سجّل دخولك
                         </h2>
-                        <div dir="ltr" className="mb-1 inline-flex items-center gap-2 text-2xl font-bold uppercase tracking-[0.16em] text-lime-400">
+                        <div dir="ltr" className="mb-1 text-3xl inline-flex items-center gap-2 text-2xl font-bold uppercase tracking-[0.16em] text-lime-400">
                             مرحبًا بعودتك
                         </div>
 
