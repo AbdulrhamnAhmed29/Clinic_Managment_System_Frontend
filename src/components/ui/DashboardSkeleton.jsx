@@ -6,7 +6,7 @@ function DashboardSkeleton() {
     return (
         <div
             dir="rtl"
-            className="app-shell flex h-svh overflow-hidden font-sans text-white"
+            className="app-shell dashboard-skeleton flex h-svh overflow-hidden font-sans text-white"
             role="status"
             aria-busy="true"
             aria-label="جارٍ تحميل لوحة التحكم"

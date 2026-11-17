@@ -210,6 +210,50 @@
 .dashboard-stat-card {
   border-color: color-mix(in srgb, var(--brand-secondary) 22%, transparent);
 }
+
+@media (max-width: 639px) {
+  .login-page {
+    height: 100dvh;
+    min-height: 0;
+  }
+
+  .login-card {
+    border-color: transparent;
+    border-radius: 1.25rem;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .login-card > :first-child {
+    height: 2px;
+  }
+
+  .login-card-content {
+    padding: 0.75rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .login-page {
+    height: 100svh;
+    min-height: 0;
+  }
+}
+
+@media (max-height: 720px) {
+  .login-card-content {
+    padding-block: 0.75rem;
+  }
+
+  .login-card-content > header {
+    margin-bottom: 0.75rem;
+  }
+
+  .login-card-content > header > div:first-child {
+    margin-bottom: 0.75rem;
+  }
+}
 /* Firefox */
 * {
   scrollbar-width: thin;
