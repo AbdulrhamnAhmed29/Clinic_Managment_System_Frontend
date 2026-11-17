@@ -17,10 +17,7 @@ function LoginPage() {
                     <LoginForm />
                 </section>
             </main>
-            {/* Footer*/}
-            <footer className="relative z-10 shrink-0 border-t border-white/5 py-1.5 text-center text-[0.6rem] text-white/35 sm:py-2 sm:text-xs">
-                <p>جميع الحقوق محفوظة &copy; {new Date().getFullYear()}</p>
-            </footer>
+    
         </div>
     );
 }
