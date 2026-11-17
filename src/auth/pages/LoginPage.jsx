@@ -3,20 +3,16 @@ import LoginPageHeader from '../components/LoginPageHeader';
 
 function LoginPage() {
     return (
-        <div className="relative flex h-svh min-h-0 flex-col justify-between overflow-hidden bg-[#080a08] text-white sm:min-h-screen sm:h-auto">
-            <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_48%,rgba(123,234,0,0.11),transparent_42%),linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:auto,48px_48px,48px_48px]"
-            />
+        <div className="app-shell relative flex min-h-svh flex-col justify-between overflow-hidden text-white sm:h-svh sm:min-h-0">
             {/* Header  */}
             <header className="relative z-10">
                 <LoginPageHeader />
             </header>
             {/* Main*/}
-            <main className="relative z-10 flex min-h-0 flex-1 items-center justify-center py-2 sm:py-16">
+            <main className="relative z-10 flex min-h-0 flex-1 items-center justify-center py-2 sm:py-4 lg:py-6">
                 <section
                     aria-labelledby="login-heading"
-                    className=" px-4 md:w-[500px] md:px-0"
+                    className="w-full px-4 sm:max-w-[500px] sm:px-0"
                 >
                     <h1 id="login-heading" className="sr-only">تسجيل الدخول</h1>
                  <LoginForm/>

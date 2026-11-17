@@ -27,9 +27,9 @@ export default function HealthCareLoginForm() {
             <div className="h-1 bg-gradient-to-l from-lime-300 via-[#7bea00] to-lime-300" />
             <div className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-lime-400/10 blur-[90px]" />
 
-            <div className="relative p-4 sm:p-10 lg:p-12">
-                <header className="mb-5 sm:mb-9">
-                    <div dir="ltr" className="mb-5 flex items-center justify-between sm:mb-9">
+            <div className="relative p-4 sm:p-7 lg:p-9">
+                <header className="mb-5 sm:mb-6">
+                    <div dir="ltr" className="mb-5 flex items-center justify-between sm:mb-6">
                         <div className="flex items-center gap-3">
                             <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#7bea00] text-[#11150c] shadow-[0_0_30px_rgba(123,234,0,0.2)] sm:h-12 sm:w-12">
                                 <svg
@@ -73,7 +73,7 @@ export default function HealthCareLoginForm() {
                 <form
                     onSubmit={handleSubmit(handleFormSubmit)}
                     noValidate
-                    className="flex flex-col gap-4 sm:gap-6"
+                    className="flex flex-col gap-4 sm:gap-5"
                 >
                     <div>
                         <label

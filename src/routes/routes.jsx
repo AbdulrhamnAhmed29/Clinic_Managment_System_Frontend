@@ -5,6 +5,8 @@ const LoginPage = lazy(() => import("../auth/pages/LoginPage"));
 const MainLayout = lazy(() => import("../layouts/MainLayout"));
 const DashboardPage = lazy(() => import("../pages/DashboardPage"));
 const SectionPlaceholder = lazy(() => import("../pages/SectionPlaceholder"));
+const SettingsPage = lazy(() => import("../pages/SettingsPage"));
+const UsersPage = lazy(() => import("../pages/UsersPage"));
 
 
 export const AppRoutes = () => {
@@ -52,13 +54,9 @@ export const AppRoutes = () => {
         />
         <Route
           path="settings"
-          element={
-            <SectionPlaceholder
-              title="الإعدادات"
-              description="إعدادات الحساب وتفضيلات النظام."
-            />
-          }
+          element={<SettingsPage />}
         />
+        <Route path="users" element={<UsersPage />} />
       </Route>
     </Routes>
   )
