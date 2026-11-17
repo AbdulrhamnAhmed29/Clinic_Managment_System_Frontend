@@ -4,6 +4,7 @@ import { Toaster } from 'sonner';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import DashboardSkeleton from './components/ui/DashboardSkeleton';
 import { AppRoutes } from './routes/routes';
+import { BrandColorProvider } from './theme/BrandColorProvider';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,9 +20,11 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Toaster position="top-center" richColors />
-        <Suspense fallback={<DashboardSkeleton />}>
-          <AppRoutes />
-        </Suspense>
+        <BrandColorProvider>
+          <Suspense fallback={<DashboardSkeleton />}>
+            <AppRoutes />
+          </Suspense>
+        </BrandColorProvider>
       </BrowserRouter>
     </QueryClientProvider>
   );
