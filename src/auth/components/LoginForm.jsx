@@ -22,16 +22,16 @@ export default function HealthCareLoginForm() {
     return (
         <div
             dir="rtl"
-            className="relative w-full overflow-hidden rounded-[1.75rem] border border-lime-300/25 bg-transparent text-white shadow-[0_32px_120px_-38px_rgba(132,204,22,0.35)] backdrop-blur-xl"
+            className="login-card relative w-full overflow-hidden lg:rounded-[1.75rem] lg:border lg:border-lime-300/25 bg-transparent text-white lg:shadow-[0_32px_120px_-38px_rgba(132,204,22,0.35)] backdrop-blur-xl"
         >
-            <div className="h-1 bg-gradient-to-l from-lime-300 via-[#7bea00] to-lime-300" />
-            <div className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-lime-400/10 blur-[90px]" />
+            <div className="h-1 hidden md:block  md:bg-gradient-to-l md:from-[var(--brand-primary)] md:via-[var(--brand-secondary)] md:to-[var(--brand-primary)] " />
+            <div className="hidden md:block pointer-events-none  absolute -left-24 -top-24 h-64 w-64 rounded-full bg-lime-400/10 blur-[90px]" />
 
-            <div className="relative p-4 sm:p-7 lg:p-9">
-                <header className="mb-5 sm:mb-6">
-                    <div dir="ltr" className="mb-5 flex items-center justify-between sm:mb-6">
+            <div className="login-card-content relative px-3 py-3 sm:p-4 lg:p-7">
+                <header className="mb-3 sm:mb-5">
+                    <div dir="ltr" className="mb-3 flex items-center justify-between sm:mb-5">
                         <div className="flex items-center gap-3">
-                            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#7bea00] text-[#11150c] shadow-[0_0_30px_rgba(123,234,0,0.2)] sm:h-12 sm:w-12">
+                            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--brand-primary)] text-[#11150c] shadow-[0_0_24px_color-mix(in_srgb,var(--brand-primary)_20%,transparent)] sm:h-11 sm:w-11">
                                 <svg
                                     aria-hidden="true"
                                     className="h-6 w-6"
@@ -44,7 +44,7 @@ export default function HealthCareLoginForm() {
                                 </svg>
                             </span>
                             <div>
-                                <p className="text-lg font-black tracking-[0.12em] text-white">
+                                <p className="text-base font-black tracking-[0.12em] text-white sm:text-lg">
                                     Health Care
                                 </p>
                                 <p className="text-[0.6rem] font-semibold tracking-[0.12em] text-lime-400/80 sm:text-[0.65rem] sm:tracking-[0.18em]">
@@ -62,10 +62,10 @@ export default function HealthCareLoginForm() {
                         <span className="h-px w-6 bg-lime-400" />
                         مرحبًا بعودتك
                     </div>
-                    <h2 className="text-2xl font-black tracking-tight text-white sm:text-4xl">
+                    <h2 className="text-xl font-black tracking-tight text-white sm:text-3xl">
                         سجّل دخولك
                     </h2>
-                    <p className="mt-2 max-w-lg text-sm leading-6 text-white/55 sm:mt-3 sm:leading-7 sm:text-base">
+                    <p className="mt-1 max-w-lg text-xs leading-5 text-white/55 sm:mt-2 sm:text-sm sm:leading-6">
                         مساحة واحدة لإدارة عملائك ومتابعة أعمالك بكل سهولة.
                     </p>
                 </header>
@@ -73,12 +73,12 @@ export default function HealthCareLoginForm() {
                 <form
                     onSubmit={handleSubmit(handleFormSubmit)}
                     noValidate
-                    className="flex flex-col gap-4 sm:gap-5"
+                    className="login-form-fields mx-auto flex w-[90%] flex-col gap-3 sm:w-full sm:gap-8"
                 >
                     <div>
                         <label
                             htmlFor="email"
-                            className="mb-1.5 block text-sm font-semibold text-white/85 sm:mb-2.5"
+                            className="mb-1 block text-xs font-semibold text-white/85 sm:mb-2 sm:text-sm"
                         >
                             البريد الإلكتروني
                         </label>
@@ -105,7 +105,7 @@ export default function HealthCareLoginForm() {
                                 aria-invalid={Boolean(errors.email)}
                                 aria-describedby={errors.email ? "email-error" : undefined}
                                 {...register("email")}
-                                className={`h-12 w-full rounded-xl border bg-white/[0.03] pr-12 pl-4 text-left text-base text-white outline-none transition placeholder:text-white/25 focus:ring-4 sm:h-14 ${errors.email
+                                className={`login-field h-11 w-full rounded-xl border bg-white/[0.03] pr-12 pl-4 text-left text-sm text-white outline-none transition placeholder:text-white/25 focus:ring-4 sm:h-12 ${errors.email
                                     ? "border-red-400/70 focus:border-red-400 focus:ring-red-400/10"
                                     : "border-white/10 hover:border-white/20 focus:border-lime-400/70 focus:ring-lime-400/10"
                                     }`}
@@ -125,7 +125,7 @@ export default function HealthCareLoginForm() {
                     <div>
                         <label
                             htmlFor="password"
-                            className="mb-1.5 block text-sm font-semibold text-white/85 sm:mb-2.5"
+                            className="mb-1 block text-xs font-semibold text-white/85 sm:mb-2 sm:text-sm"
                         >
                             كلمة المرور
                         </label>
@@ -151,7 +151,7 @@ export default function HealthCareLoginForm() {
                                 aria-invalid={Boolean(errors.password)}
                                 aria-describedby={errors.password ? "password-error" : undefined}
                                 {...register("password")}
-                                className={`h-12 w-full rounded-xl border bg-white/[0.03] pr-12 pl-4 text-base text-white outline-none transition placeholder:text-white/25 focus:ring-4 sm:h-14 ${errors.password
+                                className={`login-field h-11 w-full rounded-xl border bg-white/[0.03] pr-12 pl-4 text-sm text-white outline-none transition placeholder:text-white/25 focus:ring-4 sm:h-12 ${errors.password
                                     ? "border-red-400/70 focus:border-red-400 focus:ring-red-400/10"
                                     : "border-white/10 hover:border-white/20 focus:border-lime-400/70 focus:ring-lime-400/10"
                                     }`}
@@ -171,7 +171,7 @@ export default function HealthCareLoginForm() {
                     <button
                         type="submit"
                         disabled={isPending}
-                        className="mt-1 flex h-12 w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#7bea00] px-5 text-base font-extrabold text-[#11150c] shadow-[0_8px_28px_rgba(123,234,0,0.18)] transition hover:-translate-y-0.5 hover:bg-lime-300 hover:shadow-[0_12px_36px_rgba(123,234,0,0.28)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-lime-300 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 sm:mt-2 sm:h-14"
+                        className="login-submit mt-1 flex h-11 w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-[var(--brand-primary)] px-5 text-sm font-extrabold text-[#11150c] shadow-[0_8px_28px_rgba(123,234,0,0.18)] transition hover:-translate-y-0.5 hover:shadow-[0_12px_36px_rgba(123,234,0,0.28)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-lime-300 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 sm:mt-1 sm:h-12 sm:text-base"
                     >
                         <span>{isPending ? "جارٍ التحقق..." : "تسجيل الدخول"}</span>
                         {!isPending && (
@@ -189,7 +189,7 @@ export default function HealthCareLoginForm() {
                     </button>
                 </form>
 
-                <div className="mt-5 flex items-center gap-4 sm:mt-8">
+                <div className="mx-auto mt-3 flex w-[90%] items-center gap-3 sm:mt-5 sm:w-full sm:gap-4">
                     <div className="h-px flex-1 bg-white/10" />
                     <p className="text-xs text-white/40">مساحة عملك تبدأ من هنا</p>
                     <div className="h-px flex-1 bg-white/10" />

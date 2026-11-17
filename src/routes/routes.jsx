@@ -3,10 +3,10 @@ import { Navigate, Route, Routes } from "react-router-dom";
 
 const LoginPage = lazy(() => import("../auth/pages/LoginPage"));
 const MainLayout = lazy(() => import("../layouts/MainLayout"));
-const DashboardPage = lazy(() => import("../pages/DashboardPage"));
-const SectionPlaceholder = lazy(() => import("../pages/SectionPlaceholder"));
-const SettingsPage = lazy(() => import("../pages/SettingsPage"));
-const UsersPage = lazy(() => import("../pages/UsersPage"));
+const DashboardPage = lazy(() => import("../pages/DashboardPage.jsx"));
+const SectionPlaceholder = lazy(() => import("../pages/SectionPlaceholder.jsx"));
+const SettingsPage = lazy(() => import("../pages/SettingsPage.jsx"));
+const UsersPage = lazy(() => import("../pages/UsersPage.jsx"));
 
 
 export const AppRoutes = () => {
