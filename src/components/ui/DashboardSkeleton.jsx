@@ -28,7 +28,7 @@ function DashboardSkeleton() {
                         </div>
                     ))}
                 </nav>
-                <div className="mt-auto space-y-3 rounded-2xl border border-lime-400/15 p-4">
+                <div className="mt-auto space-y-3 rounded-2xl border border-[color-mix(in_srgb,var(--brand-primary)_24%,transparent)] p-4">
                     <Bone className="h-3 w-36" />
                     <Bone className="h-3 w-full" />
                     <Bone className="h-3 w-3/4" />
@@ -63,7 +63,7 @@ function DashboardSkeleton() {
                             {Array.from({ length: 3 }, (_, index) => (
                                 <article
                                     key={index}
-                                    className="rounded-2xl border border-lime-400/15 bg-[#101310] p-5"
+                                    className="rounded-2xl border border-[color-mix(in_srgb,var(--brand-primary)_24%,transparent)] bg-[#101310] p-5"
                                 >
                                     <div className="flex items-center justify-between">
                                         <Bone className="h-3 w-28" />
@@ -75,7 +75,7 @@ function DashboardSkeleton() {
                             ))}
                         </section>
 
-                        <section className="flex items-center justify-between gap-5 rounded-2xl border border-lime-400/15 bg-[#101310] p-6 sm:p-8">
+                        <section className="flex items-center justify-between gap-5 rounded-2xl border border-[color-mix(in_srgb,var(--brand-primary)_24%,transparent)] bg-[#101310] p-6 sm:p-8">
                             <div className="w-full max-w-2xl space-y-3">
                                 <Bone className="h-5 w-64 max-w-full" />
                                 <Bone className="h-3 w-full" />

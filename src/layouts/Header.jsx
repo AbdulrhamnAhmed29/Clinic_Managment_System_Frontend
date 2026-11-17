@@ -1,5 +1,4 @@
-import {  Search } from 'lucide-react'
-import  { Activity } from 'react'
+import { Hospital, Search } from "lucide-react";
 
 function Headers() {
     return (
@@ -15,13 +14,13 @@ function Headers() {
                     />
                 </div>
                 <div className="flex items-center gap-2 lg:hidden">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-lime-400 text-[#11150c]">
-                        <Activity size={20} aria-hidden="true" />
+                    <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-[color-mix(in_srgb,var(--brand-primary)_12%,transparent)] text-[var(--brand-primary)]">
+                        <Hospital size={20} aria-hidden="true" />
                     </span>
-                    <span className="font-bold text-white">healthCare</span>
+                    <span className="font-bold text-white">Clinics System</span>
                 </div>
                 <p className="hidden text-sm text-white/50 lg:block">
-                    مرحبًا بك في <span className="gradient-word font-bold">healthCare</span>
+                    مرحبًا بك في <span className="gradient-word font-bold">Clinics System</span>
                 </p>
             </div>
             <div className="flex items-center gap-3">            
