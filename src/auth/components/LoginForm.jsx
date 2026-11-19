@@ -22,15 +22,15 @@ export default function HealthCareLoginForm() {
     return (
         <div
             dir="rtl"
-            className=" relative w-full overflow-hidden    bg-transparent text-white "
+            className="relative w-full overflow-hidden sm:border-2 border-lime-400 rounded-2xl bg-transparent text-white lg:rounded-3xl lg:border lg:border-lime-400/20 lg:border-t-lime-400/60 lg:shadow-[0_0_0_1px_rgba(123,234,0,0.08)]"
         >
             <div className="relative px-2 py-20  sm:p-6 lg:p-7">
-                <header className="mb-3 sm:mb-9">
+                <header className="mb-3 sm:mb-2 ">
                     <div className="text-center">
-                        <h2 className="text-3xl  font-black sm:mb-8 text-white sm:text-2xl">
+                        <h2 className="text-4xl  font-black sm:mb-3 text-white md:text-4xl">
                             سجّل دخولك
                         </h2>
-                        <div dir="ltr" className="mb-1 text-3xl inline-flex items-center gap-2 text-2xl font-bold uppercase tracking-[0.16em] text-lime-400">
+                        <div dir="ltr" className="mb-1 text-4xl md:text-4xl  font-bold  tracking-[0.16em] text-lime-400">
                             مرحبًا بعودتك
                         </div>
 
@@ -43,7 +43,7 @@ export default function HealthCareLoginForm() {
                 <form
                     onSubmit={handleSubmit(handleFormSubmit)}
                     noValidate
-                    className="login-form-fields mx-auto flex  flex-col gap-3 sm:w-full sm:gap-8"
+                    className="login-form-fields mx-auto flex  flex-col gap-3 sm:w-full sm:gap-4"
                 >
                     <div>
                         <label
@@ -161,11 +161,7 @@ export default function HealthCareLoginForm() {
 
             </div>
 
-            <div className="login-footer-row mx-auto mt-10 flex w-[90%] items-center gap-3 sm:mt-10 sm:w-full sm:gap-4">
-                <div className="h-px flex-1 bg-white/10" />
-                <p className="text-xs text-white/40">مساحة عملك تبدأ من هنا</p>
-                <div className="h-px flex-1 bg-white/10" />
-            </div>
+
         </div>
     );
 }
