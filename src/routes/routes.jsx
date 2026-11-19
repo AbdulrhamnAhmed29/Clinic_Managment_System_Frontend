@@ -6,7 +6,7 @@ const MainLayout = lazy(() => import("../layouts/MainLayout"));
 const DashboardPage = lazy(() => import("../pages/DashboardPage.jsx"));
 const SectionPlaceholder = lazy(() => import("../pages/SectionPlaceholder.jsx"));
 const SettingsPage = lazy(() => import("../pages/SettingsPage.jsx"));
-const UsersPage = lazy(() => import("../pages/UsersPage.jsx"));
+const UsersPage = lazy(() => import("../features/usersManagment/pages/UsersPage.jsx"));
 
 
 export const AppRoutes = () => {

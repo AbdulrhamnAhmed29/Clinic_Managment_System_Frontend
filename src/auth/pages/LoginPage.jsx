@@ -9,15 +9,16 @@ function LoginPage() {
                 <LoginPageHeader />
             </header>
             {/* Main*/}
-            <main className="relative z-10 flex min-h-0 flex-1 items-center justify-center py-1 sm:py-3 lg:py-4">
+            <main className="relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center gap-6 px-4 py-6 lg:flex-row lg:px-8">
+          
                 <section
                     aria-labelledby="login-heading"
-                    className="w-full px-2 sm:max-w-[420px] sm:px-0"
+                    className="w-full px-2 sm:max-w-[420px] sm:px-0 lg:max-w-[480px]"
                 >
                     <LoginForm />
                 </section>
             </main>
-    
+
         </div>
     );
 }
