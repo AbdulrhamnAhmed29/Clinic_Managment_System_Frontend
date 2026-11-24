@@ -28,4 +28,10 @@ export class BaseApi {
         const res = await api.delete(`${this.endpoint}/${id}`);
         return res.data
     }
+    async uploadImage(file) {
+        const formData = new FormData();
+        formData.append("image", file);
+        const res = await api.post(`${this.endpoint}/upload`, formData);
+        return res.data;
+    }
 }

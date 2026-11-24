@@ -11,11 +11,31 @@ const api = axios.create({
   },
 });
 
+
+
+api.interceptors.request.use(
+  (config) => {
+    if (config.data instanceof FormData) {
+      if (typeof config.headers?.delete === "function") {
+        config.headers.delete("Content-Type");
+      } else if (config.headers) {
+        delete config.headers["Content-Type"];
+      }
+    } else if (config.headers && !config.headers["Content-Type"]) {
+      config.headers["Content-Type"] = "application/json";
+    }
+
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
+
 // Response Interceptor 
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-   //Error Logic
+    //Error Logic
     const normalizedError = handleAxiosError(error);
 
     return Promise.reject(normalizedError);

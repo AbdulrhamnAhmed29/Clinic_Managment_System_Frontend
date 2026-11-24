@@ -6,6 +6,7 @@ const MainLayout = lazy(() => import("../layouts/MainLayout"));
 const DashboardPage = lazy(() => import("../pages/DashboardPage.jsx"));
 const SectionPlaceholder = lazy(() => import("../pages/SectionPlaceholder.jsx"));
 const SettingsPage = lazy(() => import("../pages/SettingsPage.jsx"));
+const AddNewUser = lazy(() => import("../features/usersManagment/pages/AddNewUser.jsx"))
 const UsersPage = lazy(() => import("../features/usersManagment/pages/UsersPage.jsx"));
 
 
@@ -56,6 +57,7 @@ export const AppRoutes = () => {
           path="settings"
           element={<SettingsPage />}
         />
+        <Route path="add" element={<AddNewUser />} />
         <Route path="users" element={<UsersPage />} />
       </Route>
     </Routes>

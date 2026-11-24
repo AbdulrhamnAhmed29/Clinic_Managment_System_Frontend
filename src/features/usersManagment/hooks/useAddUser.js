@@ -1,19 +1,26 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { userServices } from "../services/usersServices"
 import { USERS_KEYS } from "../../../Constants/constants";
+import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 
-export const useAddUsers = (data) => {
+export const useAddUsers = () => {
+    const navigate = useNavigate()
     const queryClient = useQueryClient();
     const AddUser = useMutation({
-        mutationFn: () => userServices.create(data),
+        mutationFn: (data) => userServices.create(data),
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: [USERS_KEYS.USERS] });
-        }
+            toast.success("تم اضافة المستخدم بنجاح");
+            navigate("/dashboard/users")
+
+        },
+       
     })
     return {
-        createUser: AddUser.mutate,         
+        createUser: AddUser.mutate,
         createUserAsync: AddUser.mutateAsync,
-        isLoading: AddUser.isPending,    
+        isLoading: AddUser.isPending,
         isSuccess: AddUser.isSuccess,
         isError: AddUser.isError,
         error: AddUser.error,
