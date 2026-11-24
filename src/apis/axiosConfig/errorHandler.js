@@ -6,7 +6,7 @@ import { toast } from "sonner";
 export function handleAxiosError(error) {
   if (error.response) {
     const { status, data } = error.response;
-// UN AUTHNTICATED
+    // UN AUTHNTICATED
     if (status === 401) {
       if (window.location.pathname !== "/login") {
         toast.error("انتهت جلستك، يرجى تسجيل الدخول مرة أخرى.");
@@ -14,9 +14,12 @@ export function handleAxiosError(error) {
       }
     }
 
-  // UN AUTHORIZED
+    // UN AUTHORIZED
     if (status === 403) {
       toast.error("غير مسموح! ليس لديك صلاحية للقيام بهذا الإجراء.");
+    }
+    if (status === 409) {
+      toast.error("هذا المستخدم موجود مسبقاً");
     }
     if (status >= 500) {
       toast.error("تحقق من السيرفر، حدث خطأ داخلي.");
