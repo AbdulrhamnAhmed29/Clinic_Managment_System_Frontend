@@ -1,7 +1,6 @@
 import { z } from "zod";
 const MAX_FILE_SIZE = 5 * 1024 * 1024 // 5MB
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"]
-const ACCEPTED_ROLES = ["super_admin", "clinic_admin", "employee"]
 
 export const createUserSchema = z.object({
     name: z
@@ -21,12 +20,10 @@ export const createUserSchema = z.object({
         .min(8, "كلمة المرور يجب أن تكون 8 أحرف على الأقل")
         .regex(/[0-9]/, "يجب أن تحتوي على رقم واحد على الأقل")
     ,
-    clinic: z.string().min(1, "اختيار العيادة مطلوب"),
+    clinic: z.string().optional(),
     role: z
         .string()
-        .min(1, "اختيار الصلاحية مطلوب")
-        .refine((role) => ACCEPTED_ROLES.includes(role), "الصلاحية غير صحيحة"),
-
+        .optional(),
     image: z
         .any()
         .optional()

@@ -15,6 +15,7 @@ import UsersListMobile from "./usersListMobile.jsx";
 
 function UsersTable() {
 
+
     const {
         cursor,
         hasPreviousPage,
@@ -29,7 +30,7 @@ function UsersTable() {
         nextCursor,
         users,
         isSuccess
-    } = useGetUsers(cursor);
+    } = useGetUsers(cursor, 10);
 
     if (isLoading) {
         return <LoadingState message="جاري تحميل المستخدمين..." />;
@@ -85,7 +86,7 @@ function UsersTable() {
                     </p>
                 </div>
                 <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-white/60">
-                    <UsersRound size={14} className="text-lime-400"aria-hidden="true"/>
+                    <UsersRound size={14} className="text-lime-400" aria-hidden="true" />
                     <span>{users.length} مستخدمين في الصفحة</span>
                 </div>
             </header>

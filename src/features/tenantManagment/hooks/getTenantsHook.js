@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
 import { TENANTS_KEYS } from "../../../Constants/constants"
-import { tenantServices } from "../services/tenantCervices"
+import { tenantServices } from "../services/tenantServices"
 
 export const useGetTenants = () => {
     const query = useQuery({
