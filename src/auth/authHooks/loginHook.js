@@ -7,10 +7,8 @@ export const useLogin = () => {
     const mutation = useMutation({
         mutationFn: (payload) => login.create(payload),
         onSuccess: () => {
-            toast.success("نورت السيستم يا دكتور")
-            setTimeout(() => {
-                navigate("/dashboard");
-            }, 2000)
+            toast.success("تم تسجيل الدخول بنجاح")
+            navigate("/dashboard");
         },
         onError: (error) => {
             toast.error(error.message)

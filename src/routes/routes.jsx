@@ -7,6 +7,7 @@ const DashboardPage = lazy(() => import("../pages/DashboardPage.jsx"));
 const SectionPlaceholder = lazy(() => import("../pages/SectionPlaceholder.jsx"));
 const SettingsPage = lazy(() => import("../pages/SettingsPage.jsx"));
 const AddNewUser = lazy(() => import("../features/usersManagment/pages/AddNewUser.jsx"))
+const EditUser = lazy(() => import("../features/usersManagment/pages/EditUser.jsx"))
 const UsersPage = lazy(() => import("../features/usersManagment/pages/UsersPage.jsx"));
 
 
@@ -59,6 +60,7 @@ export const AppRoutes = () => {
         />
         <Route path="add" element={<AddNewUser />} />
         <Route path="users" element={<UsersPage />} />
+        <Route path="users/:id/edit" element={<EditUser />} />
       </Route>
     </Routes>
   )
