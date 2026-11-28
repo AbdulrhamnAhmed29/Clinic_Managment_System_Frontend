@@ -1,5 +1,4 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
-import LoadingState from "../../components/ui/LoadingState";
 import { useGetCurrantUser } from "../../features/usersManagment/hooks/useGetCurrantUser";
 import { hasPermission } from "./hasPermission";
 
@@ -9,7 +8,7 @@ function ProtectedRoute({ allowedRoles, permission, children }) {
     const user = userResponse?.user ?? userResponse;
 
     if (isLoading) {
-        return <LoadingState message="جارٍ التحقق من صلاحيات الوصول..." />;
+        return <div>Loading.... </div>;
     }
 
     if (isError || !user) {
