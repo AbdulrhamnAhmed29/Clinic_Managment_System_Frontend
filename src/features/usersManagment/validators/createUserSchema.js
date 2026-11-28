@@ -2,6 +2,22 @@ import { z } from "zod";
 const MAX_FILE_SIZE = 5 * 1024 * 1024 // 5MB
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"]
 
+export const userImageSchema = z
+    .any()
+    .optional()
+    .refine((files) => {
+        if (!files || files.length === 0) return true
+        return files instanceof FileList || Array.isArray(files)
+    }, "ملف غير صالح")
+    .refine((files) => {
+        if (!files || files.length === 0) return true
+        return ACCEPTED_IMAGE_TYPES.includes(files[0]?.type)
+    }, "يرجى اختيار صورة بصيغة JPG, PNG أو WEBP")
+    .refine((files) => {
+        if (!files || files.length === 0) return true
+        return files[0]?.size <= MAX_FILE_SIZE
+    }, "حجم الصورة يجب ألا يتجاوز 5MB")
+
 export const createUserSchema = z.object({
     name: z
         .string()
@@ -24,19 +40,5 @@ export const createUserSchema = z.object({
     role: z
         .string()
         .optional(),
-    image: z
-        .any()
-        .optional()
-        .refine((files) => {
-            if (!files || files.length === 0) return true
-            return files instanceof FileList || Array.isArray(files)
-        }, "ملف غير صالح")
-        .refine((files) => {
-            if (!files || files.length === 0) return true
-            return ACCEPTED_IMAGE_TYPES.includes(files[0]?.type)
-        }, "يرجى اختيار صورة بصيغة JPG, PNG أو WEBP")
-        .refine((files) => {
-            if (!files || files.length === 0) return true
-            return files[0]?.size <= MAX_FILE_SIZE
-        }, "حجم الصورة يجب ألا يتجاوز 5MB"),
+    image: userImageSchema,
 });

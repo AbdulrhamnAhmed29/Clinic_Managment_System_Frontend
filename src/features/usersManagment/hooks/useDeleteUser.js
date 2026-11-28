@@ -7,7 +7,7 @@ export const useDeleteUser = () => {
     const mutation = useMutation({
         mutationFn: (userId) => userServices.delete(userId), 
         onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: [USERS_KEYS.all] });
+            queryClient.invalidateQueries({ queryKey: [USERS_KEYS.USERS] });
         },
     });
 

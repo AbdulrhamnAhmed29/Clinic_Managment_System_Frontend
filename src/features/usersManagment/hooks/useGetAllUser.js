@@ -9,7 +9,6 @@ export const useGetUsers = (cursor = null, limit) => {
             cursor == null ? { params: { limit } } : { params: { cursor, limit } }
         ),
         placeholderData: keepPreviousData,
-        staleTime: 24 * 60 * 60 * 1000
     });
 
     return {

@@ -6,6 +6,7 @@ export const useGetCurrantUser = () => {
     const currentUserQuery = useQuery({
         queryKey: [CURRANT_USERV.ME],
         queryFn: () => currantUser.getAll(),
+        staleTime: 60 * 60 * 60
     })
 
     return {
