@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { LogOut, MoreHorizontal, X } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { useLogout } from "../auth/authHooks/logoutHook";
+import { confirmAction } from "../components/ui/confirmAction";
 import { sidebarItems } from "./sidebarItems";
 
 const primaryItems = sidebarItems.slice(0, 3);
@@ -12,6 +13,20 @@ function MobileSidebar() {
     const sheetRef = useRef(null);
     const triggerRef = useRef(null);
     const { mutate: logout, isPending } = useLogout();
+
+    const handleLogout = async () => {
+        const result = await confirmAction({
+            title: "تسجيل الخروج؟",
+            text: "هل أنت متأكد من رغبتك في تسجيل الخروج؟",
+            confirmText: "تسجيل الخروج",
+            icon: "question",
+        });
+
+        if (result.isConfirmed) {
+            closeMenu();
+            logout();
+        }
+    };
 
     const closeMenu = useCallback(() => {
         setIsOpen(false);
@@ -104,10 +119,7 @@ function MobileSidebar() {
                 </nav>
                 <button
                     type="button"
-                    onClick={() => {
-                        closeMenu();
-                        logout();
-                    }}
+                    onClick={handleLogout}
                     disabled={isPending}
                     className="mt-3 flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium text-red-300 transition hover:bg-red-400/10 disabled:opacity-50"
                 >

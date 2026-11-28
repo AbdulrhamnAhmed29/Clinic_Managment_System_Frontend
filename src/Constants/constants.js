@@ -7,3 +7,6 @@ export const IMAGES = {
 export const TENANTS_KEYS = {
     TENANT: "tenants"
 }
+export const CURRANT_USERV = {
+    ME: "current-user"
+} 

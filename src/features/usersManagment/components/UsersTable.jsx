@@ -11,9 +11,13 @@ import LoadingState from "../../../components/ui/LoadingState";
 import { scrollToTop } from "../../../components/scrollToTop.js";
 import UsersListDesktop from "./usersListDesktop.jsx";
 import UsersListMobile from "./usersListMobile.jsx";
+import { useDeleteUser } from "../hooks/useDeleteUser";
+import { toast } from "sonner";
+import { confirmAction } from "../../../components/ui/confirmAction";
 
 
 function UsersTable() {
+
 
     const {
         cursor,
@@ -29,7 +33,8 @@ function UsersTable() {
         nextCursor,
         users,
         isSuccess
-    } = useGetUsers(cursor);
+    } = useGetUsers(cursor, 30);
+    const { deleteUserAsync, isDeleting } = useDeleteUser();
 
     if (isLoading) {
         return <LoadingState message="جاري تحميل المستخدمين..." />;
@@ -58,6 +63,23 @@ function UsersTable() {
 
     const hasNextPage = nextCursor !== null;
 
+    const handleDeleteUser = async (user) => {
+        const result = await confirmAction({
+            title: "حذف المستخدم؟",
+            text: `هل أنت متأكد من حذف ${user.name}؟ لا يمكن التراجع عن هذا الإجراء.`,
+            confirmText: "حذف المستخدم",
+            isDestructive: true,
+        });
+        if (!result.isConfirmed) return;
+
+        try {
+            await deleteUserAsync(user._id);
+            toast.success("تم حذف المستخدم بنجاح");
+        } catch (deleteError) {
+            toast.error(deleteError?.message || "تعذر حذف المستخدم");
+        }
+    };
+
     const handlePreviousPage = () => {
         if (!hasPreviousPage) return;
         previousPage();
@@ -85,39 +107,41 @@ function UsersTable() {
                     </p>
                 </div>
                 <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-white/60">
-                    <UsersRound size={14} className="text-lime-400"aria-hidden="true"/>
+                    <UsersRound size={14} className="text-lime-400" aria-hidden="true" />
                     <span>{users.length} مستخدمين في الصفحة</span>
                 </div>
             </header>
 
             <div className="hidden sm:block overflow-x-auto">
-                <UsersListDesktop users={users} />
+                <UsersListDesktop users={users} onDeleteUser={handleDeleteUser} isDeleting={isDeleting} />
             </div>
             <div className="sm:hidden">
-                <UsersListMobile users={users} />
+                <UsersListMobile users={users} onDeleteUser={handleDeleteUser} isDeleting={isDeleting} />
             </div>
 
-            <footer className="flex items-center justify-between gap-3 border-t border-white/10 px-4 py-3 sm:px-6">
+            <footer className="flex items-center justify-between gap-2 border-t border-white/10 px-3 py-3 sm:gap-3 sm:px-6">
                 <button
                     type="button"
                     onClick={handlePreviousPage}
                     disabled={!hasPreviousPage}
-                    className="inline-flex items-center gap-2 rounded-xl border border-white/10 px-3 py-2 text-sm font-semibold text-white/70 transition hover:border-white/20 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-400 disabled:cursor-not-allowed disabled:opacity-35"
+                    aria-label="الصفحة السابقة"
+                    className="inline-flex min-h-10 items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.025] px-2.5 text-xs font-semibold text-white/75 transition hover:border-lime-400/25 hover:bg-white/[0.05] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-400 disabled:cursor-not-allowed disabled:opacity-35 sm:gap-2 sm:px-3 sm:text-sm"
                 >
-                    <ChevronRight size={17} aria-hidden="true" />
+                    <ChevronRight size={19} aria-hidden="true" />
                     السابق
                 </button>
-                <span className="text-xs text-white/45">
+                <span className="text-center text-[11px] text-white/45 sm:text-xs">
                     {users.length} نتيجة
                 </span>
                 <button
                     type="button"
                     onClick={handleNextPage}
                     disabled={!hasNextPage}
-                    className="inline-flex items-center gap-2 rounded-xl border border-white/10 px-3 py-2 text-sm font-semibold text-white/70 transition hover:border-white/20 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-400 disabled:cursor-not-allowed disabled:opacity-35"
+                    aria-label="الصفحة التالية"
+                    className="inline-flex min-h-10 items-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.025] px-2.5 text-xs font-semibold text-white/75 transition hover:border-lime-400/25 hover:bg-white/[0.05] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime-400 disabled:cursor-not-allowed disabled:opacity-35 sm:gap-2 sm:px-3 sm:text-sm"
                 >
                     التالي
-                    <ChevronLeft size={17} aria-hidden="true" />
+                    <ChevronLeft size={19} aria-hidden="true" />
                 </button>
             </footer>
         </section>

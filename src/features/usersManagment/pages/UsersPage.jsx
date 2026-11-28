@@ -1,4 +1,4 @@
-import { Plus } from "lucide-react";
+import { Plus, UsersRound } from "lucide-react";
 import Button from "../../../components/ui/Button";
 import Pagesheaders from "../../../components/ui/Pagesheaders";
 import UsersTable from "../components/UsersTable";
@@ -9,9 +9,10 @@ function UsersPage() {
         <div className="mx-auto max-w-7xl space-y-7">
             <header className="flex  gap-3 flex-row justify-between items-center">
                 <Pagesheaders
-                    title={"ادارة"}
+                    title={"إدارة"}
                     title2={"المستخدمين"}
                     des={"إدارة حسابات أعضاء الفريق وصلاحياتهم."}
+                    icon={UsersRound}
                 />
 
                 <Button>

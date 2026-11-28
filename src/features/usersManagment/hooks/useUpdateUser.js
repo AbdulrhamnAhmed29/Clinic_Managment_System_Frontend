@@ -8,7 +8,7 @@ export const useUpdateUser = () => {
     const mutation = useMutation({
         mutationFn: ({ id, data }) => userServices.update(id, data),
         onSuccess: (updatedUser, variables) => {
-            queryClient.invalidateQueries({ queryKey: [USERS_KEYS.all] });
+            queryClient.invalidateQueries({ queryKey: [USERS_KEYS.USERS] });
             queryClient.setQueryData([USERS_KEYS.USERS, variables.id], updatedUser);
         },
     });
