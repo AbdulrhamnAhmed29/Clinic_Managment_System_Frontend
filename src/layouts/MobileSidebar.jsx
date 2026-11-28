@@ -3,16 +3,22 @@ import { LogOut, MoreHorizontal, X } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { useLogout } from "../auth/authHooks/logoutHook";
 import { confirmAction } from "../components/ui/confirmAction";
+import { useGetCurrantUser } from "../features/usersManagment/hooks/useGetCurrantUser";
+import { hasPermission } from "../shared/authorization/hasPermission";
 import { sidebarItems } from "./sidebarItems";
-
-const primaryItems = sidebarItems.slice(0, 3);
-const extraItems = sidebarItems.slice(3);
 
 function MobileSidebar() {
     const [isOpen, setIsOpen] = useState(false);
     const sheetRef = useRef(null);
     const triggerRef = useRef(null);
     const { mutate: logout, isPending } = useLogout();
+    const { user: userResponse } = useGetCurrantUser();
+    const user = userResponse?.user ?? userResponse;
+    const visibleItems = sidebarItems.filter(
+        ({ permission }) => !permission || hasPermission(user?.role, permission)
+    );
+    const primaryItems = visibleItems.slice(0, 3);
+    const extraItems = visibleItems.slice(3);
 
     const handleLogout = async () => {
         const result = await confirmAction({

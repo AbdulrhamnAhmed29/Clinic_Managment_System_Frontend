@@ -3,11 +3,18 @@ import { Link, NavLink } from "react-router-dom";
 import { useLogout } from "../auth/authHooks/logoutHook";
 import { useState } from "react";
 import { confirmAction } from "../components/ui/confirmAction";
+import { useGetCurrantUser } from "../features/usersManagment/hooks/useGetCurrantUser";
+import { hasPermission } from "../shared/authorization/hasPermission";
 import { sidebarItems } from "./sidebarItems";
 
 function DesktopSidebar() {
     const { mutate: logout, isPending } = useLogout();
     const [isCollapsed, setIsCollapsed] = useState(false);
+    const { user: userResponse } = useGetCurrantUser();
+    const user = userResponse?.user ?? userResponse;
+    const visibleItems = sidebarItems.filter(
+        ({ permission }) => !permission || hasPermission(user?.role, permission)
+    );
 
     const handleLogout = async () => {
         const result = await confirmAction({
@@ -64,7 +71,7 @@ function DesktopSidebar() {
                 </p>
             )}
             <nav id="desktop-sidebar-navigation" aria-label="القائمة الرئيسية" className="space-y-1.5">
-                {sidebarItems.map(({ label, to, icon: Icon, end }) => (
+                {visibleItems.map(({ label, to, icon: Icon, end }) => (
                     <NavLink
                         key={to}
                         to={to}
